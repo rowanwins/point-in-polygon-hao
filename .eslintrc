@@ -1,0 +1,9 @@
+{
+  "extends": "mourner",
+  "rules": {
+    "space-before-function-paren": 0,
+    "semi": 0,
+    "prefer-arrow-callback": 0,
+    "no-unneeded-ternary": 0
+  },
+}
