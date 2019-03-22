@@ -1,8 +1,11 @@
 {
   "name": "point-in-polygon-hao",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A point in polygon based on the paper Optimal Reliable Point-in-Polygon Test and Differential Coding Boolean Operations on Polygons",
-  "main": "src/index.js",
+  "main": "dist/pointInPolygon.js",
+  "module": "src/main.js",
+  "unpkg": "dist/pointInPolygon.min.js",
+  "jsdelivr": "dist/pointInPolygon.min.js",
   "scripts": {
     "bench": "npm run build && node test/bench.js",
     "build": "rollup -c",
