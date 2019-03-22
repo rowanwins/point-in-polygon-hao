@@ -1,5 +1,5 @@
 {
-  "name": "point-in-poly-hao",
+  "name": "point-in-polygon-hao",
   "version": "0.0.1",
   "description": "A point in polygon based on the paper Optimal Reliable Point-in-Polygon Test and Differential Coding Boolean Operations on Polygons",
   "main": "src/index.js",
