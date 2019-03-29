@@ -19,6 +19,7 @@
     "eslint": "^5.15.3",
     "eslint-config-mourner": "^3.0.0",
     "esm": "^3.2.20",
+    "jsts": "^2.0.3",
     "load-json-file": "^5.2.0",
     "point-in-polygon": "^1.0.1",
     "robust-point-in-polygon": "^1.0.3",

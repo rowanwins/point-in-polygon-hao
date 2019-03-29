@@ -18,6 +18,11 @@ export default function pointInPolygon(p, polygon) {
         ii = 0
         const contourLen = polygon[i].length - 1
         const contour = polygon[i]
+
+        // This helps to ensure that points on the left edges pass...
+        // Not 100% sure if it's legit
+        contour.push(contour[1])
+
         currentP = contour[0]
         v1 = currentP[0] - x
         u1 = currentP[1] - y
@@ -58,6 +63,7 @@ export default function pointInPolygon(p, polygon) {
             v1 = v2
             u1 = u2
         }
+
     }
 
     if (k % 2 === 0) return false
