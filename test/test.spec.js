@@ -2,9 +2,15 @@ import test from 'ava';
 import inside from '../src/index'
 
 const polygon = [[[1, 1], [1, 2], [2, 2], [2, 1], [1, 1]]];
+const orig = JSON.parse(JSON.stringify(polygon))
 
 test('is inside', t => {
     t.true(inside([1.5, 1.5], polygon))
+});
+
+test('input is not modified', t => {
+    inside([2, 1.5], polygon)
+    t.deepEqual(orig, polygon)
 });
 
 test('is outside', t => {
@@ -26,6 +32,7 @@ test('is on left edge', t => {
 test('is on right edge', t => {
     t.is(inside([2, 1.5], polygon), 0)
 });
+
 
 const polygonWithHole = [[[1, 1], [1, 2], [2, 2], [2, 1], [1, 1]],
     [[1.5, 1.5], [1.5, 1.7], [1.7, 1.7], [1.7, 1.5], [1.5, 1.5]]];

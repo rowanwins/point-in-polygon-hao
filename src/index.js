@@ -16,11 +16,12 @@ export default function pointInPolygon(p, polygon) {
     const numContours = polygon.length
     for (i; i < numContours; i++) {
         ii = 0
-        const contourLen = polygon[i].length - 1
+        const contourLen = polygon[i].length
         const contour = polygon[i]
 
         // This helps to ensure that points on the left edges pass...
         // Not 100% sure if it's legit
+        // Big downside is that it involves mutating the input
         contour.push(contour[1])
 
         currentP = contour[0]
@@ -44,26 +45,43 @@ export default function pointInPolygon(p, polygon) {
             if (v2 > 0 && v1 <= 0) {
                 f = (u1 * v2) - (u2 * v1)
                 if (f > 0) k = k + 1
-                else if (f === 0) return 0
+                else if (f === 0) {
+                    contour.pop()
+                    return 0
+                }
             } else if (v1 > 0 && v2 <= 0) {
                 f = (u1 * v2) - (u2 * v1)
                 if (f < 0) k = k + 1
-                else if (f === 0) return 0
+                else if (f === 0) {
+                    contour.pop()
+                    return 0
+                }
             } else if (v2 === 0 && v1 < 0) {
                 f = (u1 * v2) - (u2 * v1)
-                if (f === 0) return 0
+                if (f === 0) {
+                    contour.pop()
+                    return 0
+                }
             } else if (v1 === 0 && v2 < 0) {
                 f = u1 * v2 - u2 * v1
-                if (f === 0) return 0
+                if (f === 0) {
+                    contour.pop()
+                    return 0
+                }
             } else if (v1 === 0 && v2 === 0) {
-                if (u2 <= 0 && u1 >= 0) return 0
-                else if (u1 <= 0 && u2 >= 0) return 0
+                if (u2 <= 0 && u1 >= 0) {
+                    contour.pop()
+                    return 0
+                } else if (u1 <= 0 && u2 >= 0) {
+                    contour.pop()
+                    return 0
+                }
             }
             currentP = nextP
             v1 = v2
             u1 = u2
         }
-
+        contour.pop()
     }
 
     if (k % 2 === 0) return false
