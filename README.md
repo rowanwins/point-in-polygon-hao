@@ -4,6 +4,8 @@ Differential Coding Boolean Operations on Polygons](https://www.researchgate.net
 - Works on polygons with holes
 - Works with degenerate polyons
 - Reports 0 if on the edge
+- Not effected by floating point errors
+
 
 ### Usage
 Install via `npm install point-in-polygon-hao`
@@ -41,3 +43,7 @@ turf-point-in-polygon x 214,584 ops/sec ±0.74% (95 runs sampled)
 point-in-polygon x 489,649 ops/sec ±0.75% (91 runs sampled)
 robust-point-in-polygon x 376,268 ops/sec ±0.79% (89 runs sampled)
 ````
+
+### Other notes
+* Works irrespective of winding order of polygon
+* Does not appear to be effected by flaoting point errors compared to `point-in-polygon`

@@ -1,6 +1,6 @@
 {
   "name": "point-in-polygon-hao",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "A point in polygon based on the paper Optimal Reliable Point-in-Polygon Test and Differential Coding Boolean Operations on Polygons",
   "main": "dist/pointInPolygon.js",
   "module": "src/main.js",
@@ -34,6 +34,13 @@
       "esm"
     ]
   },
+  "keywords": [
+    "point-in-polygon",
+    "pip",
+    "point",
+    "polygon",
+    "inside"
+  ],
   "author": "Rowan Winsemius",
   "license": "MIT"
 }
