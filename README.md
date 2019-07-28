@@ -28,16 +28,16 @@ While `point-in-polygon` is slightly faster in most cases it does not support po
 
 ````
 // For a point in bounding box check
-point-in-poly-hao x 22,139,049 ops/sec ±0.75% (91 runs sampled)
-turf-point-in-polygon x 7,449,504 ops/sec ±0.67% (97 runs sampled)
-point-in-polygon x 45,114,360 ops/sec ±0.37% (97 runs sampled)
-robust-point-in-polygon x 22,621,987 ops/sec ±0.48% (91 runs sampled)
+point-in-poly-hao x 29,365,704 ops/sec ±1.30% (90 runs sampled)
+turf-point-in-polygon x 7,142,567 ops/sec ±0.61% (93 runs sampled)
+point-in-polygon x 42,339,450 ops/sec ±0.78% (95 runs sampled)
+robust-point-in-polygon x 20,675,569 ops/sec ±0.65% (95 runs sampled)
 ````
 
 ````
 // For a point in a much larger geometry (700+ vertices)
-point-in-poly-hao x 467,835 ops/sec ±0.97% (96 runs sampled)
-turf-point-in-polygon x 207,265 ops/sec ±0.79% (90 runs sampled)
-point-in-polygon x 503,046 ops/sec ±1.04% (91 runs sampled)
-robust-point-in-polygon x 372,612 ops/sec ±0.66% (94 runs sampled)
+point-in-poly-hao x 474,180 ops/sec ±0.55% (93 runs sampled)
+turf-point-in-polygon x 214,584 ops/sec ±0.74% (95 runs sampled)
+point-in-polygon x 489,649 ops/sec ±0.75% (91 runs sampled)
+robust-point-in-polygon x 376,268 ops/sec ±0.79% (89 runs sampled)
 ````
