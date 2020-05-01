@@ -1,6 +1,6 @@
 {
   "name": "point-in-polygon-hao",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "A point in polygon based on the paper Optimal Reliable Point-in-Polygon Test and Differential Coding Boolean Operations on Polygons",
   "main": "dist/pointInPolygon.js",
   "module": "src/index.js",
@@ -42,5 +42,10 @@
     "inside"
   ],
   "author": "Rowan Winsemius",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rowanwins/point-in-polygon-hao.git"
+  },
+  "homepage": "https://github.com/rowanwins/point-in-polygon-hao"
 }
