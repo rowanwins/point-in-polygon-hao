@@ -1,4 +1,4 @@
-import test from 'ava';
+import test from 'ava'
 import inside from '../src/index'
 
 const polygon = [[[1, 1], [1, 2], [2, 2], [2, 1], [1, 1]]];
@@ -57,18 +57,16 @@ test('is on edge of the outside', t => {
     t.is(inside([1.2, 1], polygonWithHole), 0)
 });
 
-// https://github.com/substack/point-in-polygon/issues/2
-test('point-in-polygon issues solved', t => {
-    const poly = [[[1, 1], [2, 1], [2, 2], [1, 2]]]
-    t.is(inside([2, 2], poly), 0)
-    t.is(inside([1, 1], poly), 0)
-});
 
-// https://github.com/mikolalysenko/robust-point-in-polygon/issues/3
-test('robust-point-in-polygon issues solved', t => {
+test('error is thrown when not the same first and last coords', t => {
     const poly = [[[0, 0], [1, 0], [1, 1]]]
-    t.is(inside([1, 1], poly), 0)
-    const anotherPoly = [[[1, 1], [1, 2], [2, 3], [2, 2]]]
-    t.is(inside([1, 1], anotherPoly), 0)
-    t.is(inside([2, 3], anotherPoly), 0)
+
+    const fn = () => {
+        inside([1, 1], poly)
+    };
+
+    const error = t.throws(() => {
+        fn()
+    }, {instanceOf: Error})
+    t.is(error.message, 'First and last coordinates in a ring must be the same');
 });

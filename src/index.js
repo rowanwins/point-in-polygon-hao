@@ -20,6 +20,11 @@ export default function pointInPolygon(p, polygon) {
         const contour = polygon[i]
 
         currentP = contour[0]
+        if (currentP[0] !== contour[contourLen][0] &&
+            currentP[1] !== contour[contourLen][1]) {
+            throw new Error('First and last coordinates in a ring must be the same')
+        }
+
         u1 = currentP[0] - x
         v1 = currentP[1] - y
 

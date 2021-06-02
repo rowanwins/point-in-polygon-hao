@@ -1,6 +1,6 @@
 import test from 'ava'
-const loadJsonFile = require('load-json-file')
-const path = require('path')
+import loadJsonFile from 'load-json-file'
+import path from 'path'
 
 import inside from '../src/index'
 
