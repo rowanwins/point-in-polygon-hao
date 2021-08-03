@@ -6,6 +6,7 @@
   "module": "src/index.js",
   "unpkg": "dist/pointInPolygon.min.js",
   "jsdelivr": "dist/pointInPolygon.min.js",
+  "types": "index.d.ts",
   "scripts": {
     "bench": "npm run build && node test/bench.js",
     "build": "rollup -c",
