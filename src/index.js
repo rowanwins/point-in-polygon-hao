@@ -15,8 +15,8 @@ export default function pointInPolygon(p, polygon) {
     const numContours = polygon.length
     for (i = 0; i < numContours; i++) {
         ii = 0
-        const contourLen = polygon[i].length - 1
         const contour = polygon[i]
+        const contourLen = contour.length - 1
 
         currentP = contour[0]
         if (currentP[0] !== contour[contourLen][0] &&
