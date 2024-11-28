@@ -1,5 +1,6 @@
 # 1.2.0
 - Use robust-predicates library for some calcs
+- Refactor logic to reduce package size and improve performance
 - Move to vitest
 
 # 1.1.0

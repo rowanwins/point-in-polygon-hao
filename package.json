@@ -1,9 +1,9 @@
 {
   "name": "point-in-polygon-hao",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "type": "module",
   "description": "A point in polygon based on the paper Optimal Reliable Point-in-Polygon Test and Differential Coding Boolean Operations on Polygons",
-  "main": "dist/pointInPolygon.js",
+  "main": "dist/pointInPolygon.mjs",
   "module": "dist/pointInPolygon.mjs",
   "unpkg": "dist/pointInPolygon.min.js",
   "jsdelivr": "dist/pointInPolygon.min.js",
@@ -14,13 +14,10 @@
     "test": "vitest"
   },
   "dependencies": {
-    "robust-predicates": "^3.0.2",
-    "vitest": "^2.1.6"
+    "robust-predicates": "^3.0.2"
   },
   "devDependencies": {
     "@rollup/plugin-buble": "^0.21.3",
-    "@turf/boolean-point-in-polygon": "^6.0.1",
-    "ava": "^3.15.0",
     "benchmark": "^2.1.4",
     "eslint": "^5.15.3",
     "eslint-config-mourner": "^3.0.0",
@@ -29,7 +26,8 @@
     "point-in-polygon": "^1.0.1",
     "robust-point-in-polygon": "^1.0.3",
     "rollup": "^1.7.0",
-    "rollup-plugin-terser": "^4.0.4"
+    "rollup-plugin-terser": "^4.0.4",
+    "vitest": "^2.1.6"
   },
   "keywords": [
     "point-in-polygon",
