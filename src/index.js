@@ -1,25 +1,24 @@
 import {orient2d} from 'robust-predicates'
 
 export default function pointInPolygon(p, polygon) {
-    let i = 0
-    let ii = 0
+    let i
+    let ii
     let k = 0
-    let f = 0
-    let u1 = 0
-    let v1 = 0
-    let u2 = 0
-    let v2 = 0
-    let currentP = null
-    let nextP = null
+    let f
+    let u1
+    let v1
+    let u2
+    let v2
+    let currentP
+    let nextP
 
-    const x = p[0]
-    const y = p[1]
+    const [x, y] = p
 
     const numContours = polygon.length
-    for (i; i < numContours; i++) {
+    for (i = 0; i < numContours; i++) {
         ii = 0
-        const contourLen = polygon[i].length - 1
         const contour = polygon[i]
+        const contourLen = contour.length - 1
 
         currentP = contour[0]
         if (currentP[0] !== contour[contourLen][0] &&
@@ -33,37 +32,15 @@ export default function pointInPolygon(p, polygon) {
         for (ii; ii < contourLen; ii++) {
             nextP = contour[ii + 1]
 
+            u2 = nextP[0] - x
             v2 = nextP[1] - y
 
-            if ((v1 < 0 && v2 < 0) || (v1 > 0 && v2 > 0)) {
-                currentP = nextP
-                v1 = v2
-                u1 = currentP[0] - x
-                continue
-            }
-
-            u2 = nextP[0] - p[0]
-
-            if (v2 > 0 && v1 <= 0) {
-                f = orient2d(u1, u2, v1, v2, 0, 0)
-                if (f > 0) k = k + 1
-                else if (f === 0) return 0
-            } else if (v1 > 0 && v2 <= 0) {
-                f = orient2d(u1, u2, v1, v2, 0 ,0)
-                if (f < 0) k = k + 1
-                else if (f === 0) return 0
-            } else if (v2 === 0 && v1 < 0) {
+            if (v1 === 0 && v2 === 0) {
+                if ((u2 <= 0 && u1 >= 0) || (u1 <= 0 && u2 >= 0)) return 0
+            } else if ((v2 >= 0 && v1 < 0) || (v2 < 0 && v1 >= 0)) {
                 f = orient2d(u1, u2, v1, v2, 0, 0)
                 if (f === 0) return 0
-            } else if (v1 === 0 && v2 < 0) {
-                f = orient2d(u1, u2, v1, v2, 0, 0)
-                if (f === 0) return 0
-            } else if (v1 === 0 && v2 === 0) {
-                if (u2 <= 0 && u1 >= 0) {
-                    return 0
-                } else if (u1 <= 0 && u2 >= 0) {
-                    return 0
-                }
+                if ((f > 0 && v2 > 0 && v1 <= 0) || (f < 0 && v2 <= 0 && v1 > 0)) k++
             }
             currentP = nextP
             v1 = v2
