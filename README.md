@@ -52,16 +52,16 @@ While `point-in-polygon` is slightly faster in most cases it does not support po
 
 ````
 // For a point in a much larger geometry (700+ vertices)
-point-in-poly-hao x 474,180 ops/sec ±0.55% (93 runs sampled)
-point-in-polygon x 489,649 ops/sec ±0.75% (91 runs sampled)
-robust-point-in-polygon x 376,268 ops/sec ±0.79% (89 runs sampled)
+point-in-poly-hao x 348,426 ops/sec ±3.04% (84 runs sampled)
+point-in-polygon x 290,308 ops/sec ±2.53% (90 runs sampled)
+robust-point-in-polygon x 279,963 ops/sec ±0.66% (88 runs sampled)
 ````
 
 ````
 // For a point in bounding box check
-point-in-poly-hao x 29,365,704 ops/sec ±1.30% (90 runs sampled)
-point-in-polygon x 42,339,450 ops/sec ±0.78% (95 runs sampled)
-robust-point-in-polygon x 20,675,569 ops/sec ±0.65% (95 runs sampled)
+point-in-poly-hao x 23,514,349 ops/sec ±1.71% (86 runs sampled)
+point-in-polygon x 27,979,131 ops/sec ±2.47% (86 runs sampled)
+robust-point-in-polygon x 24,954,850 ops/sec ±1.77% (88 runs sampled)
 ````
 
 ### Algorithm
@@ -70,4 +70,5 @@ Differential Coding Boolean Operations on Polygons](https://www.researchgate.net
 
 ### Other notes
 * Works irrespective of winding order of polygon
-* Does not appear to be effected by floating point errors compared to `point-in-polygon` or `robust-point-in-polygon`
+* ~~Does not appear to be effected by floating point errors compared to `point-in-polygon` or `robust-point-in-polygon`~~
+  * Added robust-predicates to deal with some floating point errors

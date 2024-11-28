@@ -1,3 +1,6 @@
+# 1.2.0
+- Use robust-predicates library for some calcs
+- Move to vitest
 
 # 1.1.0
 - Ensure dist folder is ES5 compatible

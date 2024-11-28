@@ -1,3 +1,5 @@
+import {orient2d} from 'robust-predicates'
+
 export default function pointInPolygon(p, polygon) {
     let i = 0
     let ii = 0
@@ -43,18 +45,18 @@ export default function pointInPolygon(p, polygon) {
             u2 = nextP[0] - p[0]
 
             if (v2 > 0 && v1 <= 0) {
-                f = (u1 * v2) - (u2 * v1)
+                f = orient2d(u1, u2, v1, v2, 0, 0)
                 if (f > 0) k = k + 1
                 else if (f === 0) return 0
             } else if (v1 > 0 && v2 <= 0) {
-                f = (u1 * v2) - (u2 * v1)
+                f = orient2d(u1, u2, v1, v2, 0 ,0)
                 if (f < 0) k = k + 1
                 else if (f === 0) return 0
             } else if (v2 === 0 && v1 < 0) {
-                f = (u1 * v2) - (u2 * v1)
+                f = orient2d(u1, u2, v1, v2, 0, 0)
                 if (f === 0) return 0
             } else if (v1 === 0 && v2 < 0) {
-                f = u1 * v2 - u2 * v1
+                f = orient2d(u1, u2, v1, v2, 0, 0)
                 if (f === 0) return 0
             } else if (v1 === 0 && v2 === 0) {
                 if (u2 <= 0 && u1 >= 0) {
