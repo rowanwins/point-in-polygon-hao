@@ -1,3 +1,6 @@
+# 1.2.1
+- update packaging
+
 # 1.2.0
 - Use robust-predicates library for some calcs
 - Refactor logic to reduce package size and improve performance

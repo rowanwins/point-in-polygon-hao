@@ -3,8 +3,8 @@
   "version": "1.2.0",
   "type": "module",
   "description": "A point in polygon based on the paper Optimal Reliable Point-in-Polygon Test and Differential Coding Boolean Operations on Polygons",
-  "main": "dist/pointInPolygon.mjs",
-  "module": "dist/pointInPolygon.mjs",
+  "main": "dist/pointInPolygon.cjs.js",
+  "module": "dist/pointInPolygon.esm.js",
   "unpkg": "dist/pointInPolygon.min.js",
   "jsdelivr": "dist/pointInPolygon.min.js",
   "types": "index.d.ts",
@@ -17,7 +17,10 @@
     "robust-predicates": "^3.0.2"
   },
   "devDependencies": {
-    "@rollup/plugin-buble": "^0.21.3",
+    "@rollup/plugin-buble": "^1.0.3",
+    "@rollup/plugin-commonjs": "^28.0.1",
+    "@rollup/plugin-node-resolve": "^15.3.0",
+    "@rollup/plugin-terser": "^0.4.4",
     "benchmark": "^2.1.4",
     "eslint": "^5.15.3",
     "eslint-config-mourner": "^3.0.0",
@@ -25,8 +28,7 @@
     "load-json-file": "^5.2.0",
     "point-in-polygon": "^1.0.1",
     "robust-point-in-polygon": "^1.0.3",
-    "rollup": "^1.7.0",
-    "rollup-plugin-terser": "^4.0.4",
+    "rollup": "^4.28.0",
     "vitest": "^2.1.6"
   },
   "keywords": [

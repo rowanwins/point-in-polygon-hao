@@ -1,5 +1,7 @@
-import {terser} from 'rollup-plugin-terser'
+import terser from '@rollup/plugin-terser'
 import buble from '@rollup/plugin-buble'
+import commonjs from '@rollup/plugin-commonjs'
+import resolve from '@rollup/plugin-node-resolve'
 
 const output = (file, plugins, format) => ({
     input: './src/index.js',
@@ -13,7 +15,8 @@ const output = (file, plugins, format) => ({
 })
 
 export default [
-    output('./dist/pointInPolygon.mjs', [buble()], 'es'),
-    output('./dist/pointInPolygon.js', [buble()], 'umd'),
-    output('./dist/pointInPolygon.min.js', [buble(), terser()], 'umd')
+    output('./dist/pointInPolygon.esm.js', [buble()], 'esm'),
+    output('./dist/pointInPolygon.cjs.js', [buble()], 'cjs'),
+    output('./dist/pointInPolygon.js', [commonjs(), resolve(), buble()], 'umd'),
+    output('./dist/pointInPolygon.min.js', [commonjs(), resolve(), buble(), terser()], 'umd')
 ]
