@@ -1,10 +1,9 @@
 {
   "name": "point-in-polygon-hao",
-  "version": "1.2.0",
-  "type": "module",
+  "version": "1.2.2",
   "description": "A point in polygon based on the paper Optimal Reliable Point-in-Polygon Test and Differential Coding Boolean Operations on Polygons",
-  "main": "dist/pointInPolygon.cjs.js",
-  "module": "dist/pointInPolygon.esm.js",
+  "main": "dist/pointInPolygon.cjs",
+  "module": "dist/pointInPolygon.mjs",
   "unpkg": "dist/pointInPolygon.min.js",
   "jsdelivr": "dist/pointInPolygon.min.js",
   "types": "index.d.ts",
@@ -13,7 +12,15 @@
     "build": "rollup -c",
     "test": "vitest"
   },
+  "exports": {
+    ".": {
+      "require": "./dist/pointInPolygon.cjs",
+      "import": "./dist/pointInPolygon.mjs",
+      "types": "./index.d.ts"
+    }
+  },
   "dependencies": {
+    "@rollup/plugin-dynamic-import-vars": "^2.1.5",
     "robust-predicates": "^3.0.2"
   },
   "devDependencies": {
