@@ -63,3 +63,38 @@ test('error is thrown when not the same first and last coords', () => {
 
     expect(() => inside([1, 1], poly)).toThrowError(/First and last/)
 });
+
+
+const polygonDiamond = [[[-1, 0], [0, -1], [1, 0], [0, 1], [-1, 0]]];
+
+test('is inside diamond', () => {
+    expect(inside([0, 0], polygonDiamond)).toBe(true)
+});
+
+test('is outside diamond', () => {
+    expect(inside([1, 1], polygonDiamond)).toBe(false)
+});
+
+test('is on left vertex', () => {
+    expect(inside([-1, 0], polygonDiamond)).toBe(0)
+});
+
+test('is on bottom vertex', () => {
+    expect(inside([0, -1], polygonDiamond)).toBe(0)
+});
+
+test('is on right vertex', () => {
+    expect(inside([1, 0], polygonDiamond)).toBe(0)
+});
+
+test('is on top vertex', () => {
+    expect(inside([0, 1], polygonDiamond)).toBe(0)
+});
+
+test('is on bottom left edge', () => {
+    expect(inside([-0.5, -0.5], polygonDiamond)).toBe(0)
+});
+
+test('is on bottom right edge', () => {
+    expect(inside([0.5, -0.5], polygonDiamond)).toBe(0)
+});
