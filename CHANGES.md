@@ -1,3 +1,6 @@
+# 1.2.4
+- Deal with regression on edge intersection
+
 # 1.2.1
 - update packaging
 

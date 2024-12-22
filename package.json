@@ -1,6 +1,6 @@
 {
   "name": "point-in-polygon-hao",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "type": "module",
   "description": "A point in polygon based on the paper Optimal Reliable Point-in-Polygon Test and Differential Coding Boolean Operations on Polygons",
   "main": "dist/cjs/index.cjs",

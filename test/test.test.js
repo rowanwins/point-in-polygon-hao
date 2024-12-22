@@ -98,3 +98,14 @@ test('is on bottom left edge', () => {
 test('is on bottom right edge', () => {
     expect(inside([0.5, -0.5], polygonDiamond)).toBe(0)
 });
+
+test('Issue #23', () => {
+    expect(inside([ 140.43, 70.43 ], [
+        [
+            [140.43, 70.43],
+            [154.4, 89.3],
+            [123.4, 81.3],
+            [140.43, 70.43]
+        ]
+    ])).toBe(0)
+});
