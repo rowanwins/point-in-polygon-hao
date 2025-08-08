@@ -1,10 +1,10 @@
-A small library for detecting in a point lies inside a polygon
+A small library for detecting if a point lies inside a polygon
 
 **Features**
 - Works on polygons with holes
-- Works with degenerate/self-intersecting polyons 
+- Works with degenerate/self-intersecting polygons 
 - Returns `0` if on the edge
-- Not effected by floating point errors
+- Not affected by floating point errors
 
 
 ### Usage
@@ -33,7 +33,7 @@ inside([1, 2], polygon)
 // => 0 to indicate on edge
 ````
 
-**Note:** The input polygon format aligns with the GeoJson specification for polygons. This means that the first and last coordinate in a polygon must be repeated, if not this library will throw an error.
+**Note:** The input polygon format aligns with the GeoJson specification for polygons. This means that the first and last coordinate in a polygon must be repeated; if not, this library will throw an error.
 ````
 const polygonWithHole = [
   [
@@ -48,7 +48,7 @@ The library does not support multi-polygons.
 
 ### Comparisons
 Some rough comparisons to similar libraries. 
-While `point-in-polygon` is slightly faster in most cases it does not support polygons with holes or degenerate polygons.
+While `point-in-polygon` is slightly faster in most cases, it does not support polygons with holes or degenerate polygons.
 
 ````
 // For a point in a much larger geometry (700+ vertices)
@@ -70,5 +70,5 @@ Differential Coding Boolean Operations on Polygons](https://www.researchgate.net
 
 ### Other notes
 * Works irrespective of winding order of polygon
-* ~~Does not appear to be effected by floating point errors compared to `point-in-polygon` or `robust-point-in-polygon`~~
+* ~~Does not appear to be affected by floating point errors compared to `point-in-polygon` or `robust-point-in-polygon`~~
   * Added robust-predicates to deal with some floating point errors
